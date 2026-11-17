@@ -27,6 +27,8 @@ uv run behave features/update-file.feature -n "<scenario name>"   # one scenario
 uv run python src/pin_updater.py ...            # run the CLI directly
 ```
 
+CI: `.github/workflows/acceptance-test.yml` runs the full behave suite on pushes to `main`, on every pull request, and on manual dispatch.
+
 There is no linter, formatter, or unit-test suite configured; the BDD suite is the only test layer. `PIN_UPDATER_BDD_SCRIPT` overrides which script the suite executes (default `src/pin_updater.py`).
 
 ## Architecture
