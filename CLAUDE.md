@@ -16,6 +16,11 @@ pin-updater <HTTPS_URL | --stdin> [--input-format text|json] [--version-key K] [
 Dependencies are managed with `uv` (dev group: behave, pytest-httpserver, PyYAML, trustme).
 
 ```bash
+# Acceptance test (locked deps, JSON report)
+uv sync --locked --group dev --python 3.14
+uv run --locked python -m behave --no-snippets --format json features
+
+# Day-to-day shortcuts
 uv run behave                                   # full acceptance suite (~40s)
 uv run behave features/update-file.feature      # one feature
 uv run behave features/update-file.feature -n "<scenario name>"   # one scenario
